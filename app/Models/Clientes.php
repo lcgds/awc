@@ -5,21 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Funcionario extends Model
+class Clientes extends Model
 {
     use HasFactory;
 
-    protected $table = 'Funcionario';
+    protected $table = 'Clientes';
 
     protected $fillable = [
         'nome',
         'endereco',
         'email',
-        'telefone'
+        'data_de_nascimento'
     ];
 
-    /*
-        Definição manual de chave primária
-        protected $primarykey = 'nome_da_pk';
-    */
+    public function vendas() {
+        return $this->hasMany(Vendas::class, 'cliente_id');
+    }
 }
