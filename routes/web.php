@@ -16,3 +16,84 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/luiz', function() {
+    return view('luiz',
+    [
+        'possuiExperiencia' => true,
+
+        'experiencias' => 
+        [
+            [
+                'periodo' => '2019 - o momento',
+                'cargo' => 'Técnico Administrativo',
+                'empresa' => 'Companhia de Entrepostos e Armazéns Gerais de São Paulo'
+            ],
+            [
+                'periodo' => '2016 - 2018',
+                'cargo'=> 'Jovem Aprendiz',
+                'empresa' => 'Rio Acima Distribuidora'
+            ]
+        ],
+
+        'formacoes_academicas' =>
+        [
+            [
+                'periodo' => '2020 - o momento',
+                'curso' => 'Graduação em Sistemas para Internet',
+                'instituicao' => 'Centro Universitário Senac - São Paulo, SP'
+            ]
+        ],
+
+        'competencias' =>
+        [
+            [
+                'nome' => 'Planejamento estratégico',
+                'nivel' => 95
+            ],
+            [
+                'nome' => 'Eficácia organizacional',
+                'nivel' => 85
+            ],
+            [
+                'nome' => 'Inglês',
+                'nivel' => 75
+            ]
+        ],
+
+        'certificados' =>
+        [
+            [
+                'periodo' => '2017 - 2018',
+                'titulo' => 'Técnico em Informática',
+                'instituicao' => 'ETEC São Paulo'
+            ],
+            [
+                'periodo' => '2015 - 2016',
+                'titulo' => 'Técnico em Administração',
+                'instituicao' => 'ETEC Jaraguá'
+            ]
+        ]
+    ]
+    );
+});
+
+Route::get('/avisos', function() 
+{
+    return view('avisos',
+    [
+        'nome' => 'Luiz',
+        'mostrar' => true,
+        'avisos' => 
+        [
+            [
+                'id' => 1, 
+                'texto' => 'Feriados agora'
+            ],
+            [
+                'id' => 2,
+                'texto' => 'Feriados semana que vem'
+            ]
+        ]
+    ]);
+});
