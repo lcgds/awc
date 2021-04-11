@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClientsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -97,3 +98,27 @@ Route::get('/avisos', function()
         ]
     ]);
 });
+
+/*
+    Route::get('/clientes', function() {
+        return view('clientes.index')->name('clientes.index');
+    });
+*/
+
+Route::group(['prefix' => 'clientes'], function() {
+
+    Route::get('/', [App\Http\Controllers\ClientsController::class, 'readClients'])
+        ->name('clientes.index');
+
+    Route::get('/create', [App\Http\Controllers\ClientsController::class, 'createClients'])
+        ->name('clientes.create')
+        ->middleware('auth');
+
+    Route::post('/store', [App\Http\Controllers\ClientsController::class, 'storeClients'])
+        ->name('clientes.store')
+        ->middleware('auth');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

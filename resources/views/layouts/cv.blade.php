@@ -22,7 +22,7 @@
         } 
 
         main {
-            width: 29%;
+            width: 30%;
             background-color: #0a66c2;
             color: white;
             text-align: right;
@@ -36,7 +36,7 @@
 
         aside {
             padding: 1.25rem;
-            width: 66%;
+            width: 60%;
             background-color: white;   
         }
 
