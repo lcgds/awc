@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientsController;
+use App\Http\Controllers\RolesController;
+use App\Http\Controllers\UserController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -122,3 +126,8 @@ Route::group(['prefix' => 'clientes'], function() {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['middleware' => ['auth']], function() {
+    Route::resource('/users', App\Http\Controllers\UserController::class);
+    Route::resource('/roles', App\Http\Controllers\RoleController::class);
+});
